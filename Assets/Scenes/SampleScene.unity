@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 108348316}
   - component: {fileID: 108348315}
   - component: {fileID: 108348314}
+  - component: {fileID: 108348317}
   m_Layer: 0
   m_Name: WheelLR Collider
   m_TagString: Untagged
@@ -248,6 +249,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108348312}
   m_Mesh: {fileID: 8999911773206952699, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+--- !u!114 &108348317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108348312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c6d8036cdfe2a44809f9f1d3c87cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelModel: {fileID: 2064305558}
+  WheelCollider: {fileID: 0}
+  steerable: 0
+  motorized: 1
 --- !u!1 &175712296
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +277,7 @@ GameObject:
   - component: {fileID: 175712300}
   - component: {fileID: 175712299}
   - component: {fileID: 175712298}
+  - component: {fileID: 175712301}
   m_Layer: 0
   m_Name: WheelLF Collider
   m_TagString: Untagged
@@ -373,6 +391,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175712296}
   m_Mesh: {fileID: 8792586484180348971, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+--- !u!114 &175712301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175712296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c6d8036cdfe2a44809f9f1d3c87cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelModel: {fileID: 2064305557}
+  WheelCollider: {fileID: 0}
+  steerable: 1
+  motorized: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +513,7 @@ GameObject:
   - component: {fileID: 714059786}
   - component: {fileID: 714059785}
   - component: {fileID: 714059784}
+  - component: {fileID: 714059787}
   m_Layer: 0
   m_Name: WheelRF Collider
   m_TagString: Untagged
@@ -592,6 +627,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714059782}
   m_Mesh: {fileID: -6857689473578963052, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+--- !u!114 &714059787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714059782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c6d8036cdfe2a44809f9f1d3c87cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelModel: {fileID: 2064305556}
+  WheelCollider: {fileID: 0}
+  steerable: 1
+  motorized: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +852,7 @@ GameObject:
   - component: {fileID: 1383091872}
   - component: {fileID: 1383091871}
   - component: {fileID: 1383091870}
+  - component: {fileID: 1383091873}
   m_Layer: 0
   m_Name: WheelRR Collider
   m_TagString: Untagged
@@ -914,6 +966,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383091868}
   m_Mesh: {fileID: 7567532504055388576, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+--- !u!114 &1383091873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383091868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c6d8036cdfe2a44809f9f1d3c87cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelModel: {fileID: 2064305555}
+  WheelCollider: {fileID: 0}
+  steerable: 0
+  motorized: 1
 --- !u!1001 &2029678169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1009,6 +1077,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb0df81b87022c244933071fca5ef602, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2029678173}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2029678175}
     - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: cb0df81b87022c244933071fca5ef602, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2029678174}
@@ -1077,6 +1148,44 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4493585093827132993, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+--- !u!114 &2029678175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029678170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefd9af73795bef4faaf36b77b102ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motorTorque: 2000
+  brakeTorque: 2000
+  maxSpeed: 20
+  steeringRange: 30
+  steeringRangeAtMaxSpeed: 10
+  centreOfGravityOffset: -1
+--- !u!4 &2064305555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9078949020938347583, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+  m_PrefabInstance: {fileID: 2029678169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2064305556 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1677264337397171965, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+  m_PrefabInstance: {fileID: 2029678169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2064305557 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6362509722343219229, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+  m_PrefabInstance: {fileID: 2029678169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2064305558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7219076460700332019, guid: cb0df81b87022c244933071fca5ef602, type: 3}
+  m_PrefabInstance: {fileID: 2029678169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
