@@ -15,7 +15,7 @@ public class CarCollection : MonoBehaviour
         }        
     }
 
-    public static Car getCar(CarEnum carEnum)
+    public Car getCar(CarEnum carEnum)
     {
         return cars.Find(x => x.carEnum == carEnum);
     }
