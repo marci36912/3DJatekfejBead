@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class CarCollection : MonoBehaviour
 {
-    private static readonly List<Car> cars;
+    private static List<Car> cars;
 
     void Awake()
     {
-        if(cars.Count == 0)
+        if(cars == null)
         {
+            cars = new List<Car>();
             cars.Add(new Car("Mazda Miata NA", CarEnum.miata, DriveEnum.RWD, 2000, 2000, 20, 30));
         }        
     }

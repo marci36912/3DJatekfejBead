@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WheelControl : MonoBehaviour
 {
-    public Transform wheelModel;
+    public Transform wheel;
 
     [HideInInspector] public WheelCollider WheelCollider;
 
@@ -31,7 +31,7 @@ public class WheelControl : MonoBehaviour
         // Get the Wheel collider's world pose values and
         // use them to set the wheel model's position and rotation
         WheelCollider.GetWorldPose(out position, out rotation);
-        wheelModel.transform.position = position;
-        //wheelModel.transform.rotation = new Quaternion(rotation.z, rotation.y, rotation.x, rotation.w);
+        wheel.transform.position = position;
+        wheel.transform.rotation = rotation;
     }
 }
