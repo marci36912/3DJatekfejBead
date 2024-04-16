@@ -10,7 +10,9 @@ public class CarController : MonoBehaviour
     private Car car;
     private float horizontal;
     private float vertical;
+    private float direction;
     private bool handBreak;
+    private bool breaks;
 
     private void Start() 
     {
@@ -29,8 +31,9 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        //kocsi go brrr
-        
+        direction = Vector3.Dot(carBody.velocity, transform.forward);
+        breaks = (direction > 0 && vertical < 0) || (direction < 0 && vertical > 0);
+
         foreach (var wheel in wheels)
         {
             if (wheel.steerable)
@@ -38,16 +41,19 @@ public class CarController : MonoBehaviour
                 wheel.WheelCollider.steerAngle = horizontal * 10;
             }
             
-            if (!handBreak)
+            if (!handBreak && !breaks)
             {
                 if (wheel.motorized)
                 {
-                    Debug.Log(wheel.WheelCollider.rpm);
-                    wheel.WheelCollider.motorTorque = vertical * 2000;
+                        wheel.WheelCollider.motorTorque = vertical * 2000;
                 }
                 wheel.WheelCollider.brakeTorque = 0;
             }
             else if(handBreak)
+            {
+                wheel.WheelCollider.brakeTorque = 20000;
+            }
+            else if(breaks)
             {
                 wheel.WheelCollider.brakeTorque = 20000;
             }
