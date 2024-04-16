@@ -12,7 +12,7 @@ public class CarCollection : MonoBehaviour
         if(cars == null)
         {
             cars = new List<Car>();
-            cars.Add(new Car("Mazda Miata NA", CarEnum.miata, DriveEnum.RWD, 2000, 2000, 20, 30));
+            cars.Add(new Car("Nissan GTR", CarEnum.gtr, DriveEnum.RWD, 2000, 2000, 20, 30));
         }        
     }
 

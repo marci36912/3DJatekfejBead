@@ -1,5 +1,5 @@
 public enum CarEnum
 {
-    miata,
+    gtr,
     vege
 }
