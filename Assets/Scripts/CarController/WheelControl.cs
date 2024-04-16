@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class WheelControl : MonoBehaviour
 {
-        [HideInInspector] public WheelCollider WheelCollider;
+    [HideInInspector] public WheelCollider WheelCollider;
     public Transform wheel;
-
     public bool steerable;
     public bool motorized;
 
-    Vector3 position;
-    Quaternion rotation;
+    private Vector3 position;
+    private Quaternion rotation;
 
     private void Start()
     {

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class followCar : MonoBehaviour
 {
-    [SerializeField] Transform t;
+    [SerializeField] private Transform t;
+    [SerializeField] private bool follow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,7 @@ public class followCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(t.position.x, transform.position.y, t.position.z);
+        if(follow)
+            transform.position = new Vector3(t.position.x, transform.position.y, t.position.z);
     }
 }

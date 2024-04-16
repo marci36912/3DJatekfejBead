@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     [SerializeField] private CarEnum carEnum;
-    [SerializeField] private AnimationCurve anim;
+    [SerializeField] private AnimationCurve torqueCurve;
     private WheelControl[] wheels;
     private Rigidbody carBody;
     private Car car;
@@ -40,7 +40,7 @@ public class CarController : MonoBehaviour
         breaks = (direction > 1 && vertical < 0) || (direction < -1 && vertical > 0);
 
         direction = Vector3.Dot(carBody.velocity, transform.forward);
-        torque = anim.Evaluate(normalizedSpeed);
+        torque = torqueCurve.Evaluate(normalizedSpeed);
         vertical = (carBody.velocity.magnitude < car.maxSpeed) ? vertical : -vertical;
 
         foreach (var wheel in wheels)
