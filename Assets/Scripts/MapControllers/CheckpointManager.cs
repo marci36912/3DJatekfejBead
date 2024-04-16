@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CheckpointManager : MonoBehaviour
 {
@@ -35,6 +36,11 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
+    public string getTime()
+    {
+        return $"{(int)(time / 60)}:{Math.Round(time - ((int)time/60)*60, 2)}";
+    }
+
     private bool lastCheckpoint()
     {
         return index == (checkpoints.Count - 1);
@@ -43,6 +49,6 @@ public class CheckpointManager : MonoBehaviour
     private void finished()
     {
         time = Time.time - time;
-        Debug.Log($"vege, {time}");
+        Debug.Log($"vege, {getTime()}");
     }
 }
