@@ -26,12 +26,14 @@ public class WheelControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         // Get the Wheel collider's world pose values and
         // use them to set the wheel model's position and rotation
         WheelCollider.GetWorldPose(out position, out rotation);
         wheel.transform.position = position;
+        //Debug.Log(rotation.eulerAngles);
+        //rotation.eulerAngles = new Vector3(rotation.eulerAngles.z, rotation.eulerAngles.y - 90, rotation.eulerAngles.x);
         wheel.transform.rotation = rotation;
     }
 }
