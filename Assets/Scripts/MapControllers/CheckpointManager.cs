@@ -11,14 +11,17 @@ public class CheckpointManager : MonoBehaviour
 
     private void Start() 
     {
-        time = Time.time;
-        foreach (var checkpoint in checkpoints)
+        if(checkpoints.Count != 0)
         {
-            checkpoint.SetActive(false);
-        }
+            time = Time.time;
+            foreach (var checkpoint in checkpoints)
+            {
+                checkpoint.SetActive(false);
+            }
 
-        index = 0;
-        checkpoints[index].SetActive(true);
+            index = 0;
+            checkpoints[index].SetActive(true);
+        }
     }
 
     public void nextIndex()

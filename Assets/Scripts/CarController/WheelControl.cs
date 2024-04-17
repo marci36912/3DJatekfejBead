@@ -14,7 +14,7 @@ public class WheelControl : MonoBehaviour
     private Vector3 position;
     private Quaternion rotation;
 
-    private void Start()
+    private void Awake()
     {
         WheelCollider = GetComponent<WheelCollider>();
     }

@@ -5,15 +5,13 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Vector3 offset;
-    private Transform car;
     private CameraRotator rotatePoint;
     private float horizontal, vertical;
 
-    private void Start() 
+    private void OnEnable() 
     {
-        car = GameObject.FindGameObjectWithTag("Car").transform;
         rotatePoint = GameObject.Find("Camerarotator").GetComponent<CameraRotator>();
-        transform.position = new Vector3(car.position.x + offset.x, car.position.y + offset.y, car.position.z + offset.z);
+        //transform.position = offset;
     }
 
     private void Update()

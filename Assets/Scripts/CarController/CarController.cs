@@ -17,7 +17,7 @@ public class CarController : MonoBehaviour
     private bool handBreak;
     private bool breaks;
 
-    private void Start() 
+    private void OnEnable() 
     {
         car = GameObject.Find("carManager").GetComponent<CarCollection>().getCar(carEnum);
         wheels = GetComponentsInChildren<WheelControl>();
