@@ -18,12 +18,11 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        //ezekkel az auto is mozog, fixeld.
         backwards = Input.GetKey(KeyCode.DownArrow);
         left = Input.GetKey(KeyCode.LeftArrow);
         right = Input.GetKey(KeyCode.RightArrow);
 
-        rotateCamera();
+        //rotateCamera();
     }
 
     private void rotateCamera()
