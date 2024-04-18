@@ -50,7 +50,7 @@ public class CarController : MonoBehaviour
         {
             if (wheel.steerable)
             {
-                wheel.WheelCollider.steerAngle = horizontal * (car.steeringAngle/(1+normalizedSpeed));
+                wheel.WheelCollider.steerAngle = horizontal * Mathf.Lerp(car.steeringAngle, car.steeringAngle/3, normalizedSpeed);
             }
             
             if (!handBreak && !breaks)
