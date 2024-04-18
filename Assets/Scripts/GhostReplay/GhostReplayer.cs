@@ -17,14 +17,15 @@ public class GhostReplayer : MonoBehaviour
     }
     void Update()
     {
-        if((points[index].timestamp + c) <= Time.time)
+        if((points[index+1].timestamp + c) <= Time.time)
         {
-            Debug.Log($"{points[index].position}  {points[index].rotation.eulerAngles} {index}/{points.Count}\n{points[index].timestamp + c}/{Time.time}");
-            ghost.transform.position = points[index].position;
-            ghost.transform.rotation = points[index].rotation;
-
-            index = index+1 < points.Count ? index+1 : index;
+            index = index+2 < points.Count ? index+1 : index;
+            ghost.transform.eulerAngles = points[index].rotation;
         }
+
+        smoothMovement(points[index].timestamp + c, points[index+1].timestamp + c,
+                       points[index].position, points[index+1].position,
+                       points[index].rotation, points[index+1].rotation);
     }
 
     public void startReplay()
@@ -37,5 +38,12 @@ public class GhostReplayer : MonoBehaviour
 
         if(points == null || points.Count == 0)
             Destroy(gameObject);
+    }
+
+    private void smoothMovement(float startTime, float endTime, Vector3 startPosition, Vector3 endPosition, Vector3 startRotation, Vector3 endRotation)
+    {
+        float t = Mathf.Clamp((Time.time - startTime)/(endTime - startTime), 0.0f, 1.0f);
+        ghost.transform.position = Vector3.Lerp(startPosition, endPosition, t);
+        //ghost.transform.eulerAngles = Vector3.Lerp(startRotation, endRotation, t);    causes weird flipping while replaying
     }
 }

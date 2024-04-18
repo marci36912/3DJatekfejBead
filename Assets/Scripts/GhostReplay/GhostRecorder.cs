@@ -22,7 +22,7 @@ public class GhostRecorder : MonoBehaviour
     {
         if(timer <= 0 && notFinished)
         {
-            points.Add(new Ghost(player.position, player.rotation, (Time.time - startingTime)));
+            points.Add(new Ghost(player.position, player.eulerAngles, (Time.time - startingTime)));
             timer = frameTime;
         }
         else

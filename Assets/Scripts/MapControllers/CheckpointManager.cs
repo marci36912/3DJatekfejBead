@@ -47,13 +47,12 @@ public class CheckpointManager : MonoBehaviour
     private void finished()
     {
         time = Time.time - time;
-        Debug.Log($"vege, {getTime()}");
+        Debug.Log($"Finished, {getTime()}");
         GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().finished();
 
         if(loop)
         {
             resetCheckpoints();
-            GameObject.Find("GhostReplayer").GetComponent<GhostReplayer>().startReplay();
         }
     }
 
