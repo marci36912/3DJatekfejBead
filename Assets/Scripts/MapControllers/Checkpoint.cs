@@ -13,7 +13,6 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        Debug.Log("" + other.gameObject.name);
         if(other.tag == "Player")
         {
             checkpointManager.nextIndex();

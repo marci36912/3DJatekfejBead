@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Threading;
 
 public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> checkpoints;
+    [SerializeField] private bool loop;
     private int index;
     private float time;
 
@@ -13,14 +15,7 @@ public class CheckpointManager : MonoBehaviour
     {
         if(checkpoints.Count != 0)
         {
-            time = Time.time;
-            foreach (var checkpoint in checkpoints)
-            {
-                checkpoint.SetActive(false);
-            }
-
-            index = 0;
-            checkpoints[index].SetActive(true);
+            resetCheckpoints();
         }
     }
 
@@ -53,5 +48,24 @@ public class CheckpointManager : MonoBehaviour
     {
         time = Time.time - time;
         Debug.Log($"vege, {getTime()}");
+        GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().finished();
+
+        if(loop)
+        {
+            resetCheckpoints();
+            GameObject.Find("GhostReplayer").GetComponent<GhostReplayer>().startReplay();
+        }
+    }
+
+    private void resetCheckpoints()
+    {
+            time = Time.time;
+            foreach (var checkpoint in checkpoints)
+            {
+                checkpoint.SetActive(false);
+            }
+
+            index = 0;
+            checkpoints[index].SetActive(true);
     }
 }

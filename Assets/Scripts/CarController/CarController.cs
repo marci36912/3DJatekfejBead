@@ -24,6 +24,9 @@ public class CarController : MonoBehaviour
         carBody = GetComponent<Rigidbody>();
 
         carBody.centerOfMass += Vector3.up * -1;
+
+
+        GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().setData(transform);
     }
 
     private void Update() 
