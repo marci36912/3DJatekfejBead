@@ -700,6 +700,7 @@ MonoBehaviour:
   wheel: {fileID: 8190393592765498179}
   steerable: 1
   motorized: 1
+  rearWheel: 0
 --- !u!1 &7253928370336974518
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +872,7 @@ MonoBehaviour:
   wheel: {fileID: 7376392067930458840}
   steerable: 0
   motorized: 0
+  rearWheel: 1
 --- !u!1 &8296459928365458334
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +961,7 @@ MonoBehaviour:
   wheel: {fileID: 1160957784059710961}
   steerable: 0
   motorized: 0
+  rearWheel: 1
 --- !u!1 &8782836742645053983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,3 +1168,4 @@ MonoBehaviour:
   wheel: {fileID: 3027416971245745703}
   steerable: 1
   motorized: 1
+  rearWheel: 0

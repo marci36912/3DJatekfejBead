@@ -15,6 +15,6 @@ public class TimeTextManager : TextManager
     private void LateUpdate() 
     {
         float time =  Time.time - startingTime;
-        changeText($"{(int)(time / 60)}:{(int)(time - ((int)time/60)*60)}");
+        changeText($"{(int)(time / 60)}:{(Math.Round(time - ((int)time/60)*60, 2)).ToString("00.0")}");
     }
 }

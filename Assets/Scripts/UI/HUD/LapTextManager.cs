@@ -10,6 +10,6 @@ public class LapTextManager : TextManager
     }
     public void lapcount(int lap)
     {
-        changeText($"{lap}. lap");
+        changeText($"lap {lap}");
     }
 }

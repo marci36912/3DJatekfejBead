@@ -10,6 +10,7 @@ public class WheelControl : MonoBehaviour
     public Transform wheel;
     public bool steerable;
     public bool motorized;
+    public bool rearWheel;
 
     private Vector3 position;
     private Quaternion rotation;

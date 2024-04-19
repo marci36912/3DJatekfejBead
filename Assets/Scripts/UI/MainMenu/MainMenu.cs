@@ -8,9 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public static bool isLooping {get; private set;}
     private static ObjectHolder showCase;
-    private static int index;
-    private static int indexMax;
 
     public void startGame()
     {
@@ -37,6 +36,11 @@ public class MainMenu : MonoBehaviour
         Regex rgx = new Regex("[^a-zA-Z0-9 -]");
         name = rgx.Replace(name, "");
         GhostHolder.setName(name);
+    }
+
+    public void looping(bool loop)
+    {
+        isLooping = loop;
     }
 
     public static void setObjects(ObjectHolder show)

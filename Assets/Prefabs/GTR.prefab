@@ -596,13 +596,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.8
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -632,6 +632,7 @@ MonoBehaviour:
   wheel: {fileID: 3902844677616713223}
   steerable: 1
   motorized: 0
+  rearWheel: 0
 --- !u!1 &5091389691502357598
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,13 +803,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.8
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -838,6 +839,7 @@ MonoBehaviour:
   wheel: {fileID: 3313686459979205445}
   steerable: 1
   motorized: 0
+  rearWheel: 0
 --- !u!1 &5770537793515879834
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,13 +892,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.8
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -926,6 +928,7 @@ MonoBehaviour:
   wheel: {fileID: 3514541304121106320}
   steerable: 0
   motorized: 1
+  rearWheel: 1
 --- !u!1 &5974059124395215040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,13 +1176,13 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.8
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
+    m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
@@ -1209,3 +1212,4 @@ MonoBehaviour:
   wheel: {fileID: 9136020823018861840}
   steerable: 0
   motorized: 1
+  rearWheel: 1

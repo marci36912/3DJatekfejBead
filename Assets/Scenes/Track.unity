@@ -20,25 +20,25 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.25015837, g: 0.3967553, b: 0.57112503, a: 1}
+  m_AmbientEquatorColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  m_AmbientGroundColor: {r: 0.05448028, g: 0.06480328, b: 0.07618539, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
-  m_FlareStrength: 1
+  m_SkyboxMaterial: {fileID: 2100000, guid: 0072651fe7e916148908dc4c109a685f, type: 2}
+  m_HaloStrength: 0.503
+  m_FlareStrength: 0.213
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2048,7 +2048,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.71885014, g: 0.7416563, b: 0.7735849, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -3598,7 +3598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36bcee53ee27064a9e3a2710074b23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carGhost: {fileID: 1436986498572083063, guid: aca6d559aadf856478dd2a1e2822667d, type: 3}
+  carGhost: {fileID: 2587020799474963211, guid: 4ddc2a53e3c11354795c16f68020eb2e, type: 3}
 --- !u!1 &1813023548
 GameObject:
   m_ObjectHideFlags: 0

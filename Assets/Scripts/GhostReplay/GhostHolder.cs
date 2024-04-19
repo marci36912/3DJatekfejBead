@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GhostHolder : MonoBehaviour
 {
@@ -19,6 +20,17 @@ public class GhostHolder : MonoBehaviour
 
         if(playedDate == null)
             playedDate = "";
+    }
+
+    private void OnEnable() 
+    {
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            if(MainMenu.isLooping)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     public void setPoints(List<Ghost> points)

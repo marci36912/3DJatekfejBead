@@ -53,10 +53,21 @@ public class CarController : MonoBehaviour
         {
             if (wheel.steerable)
             {
-                wheel.WheelCollider.steerAngle = horizontal * Mathf.Lerp(car.steeringAngle, car.steeringAngle/3, normalizedSpeed);
+                wheel.WheelCollider.steerAngle = horizontal * Mathf.Lerp(car.steeringAngle, car.steeringAngle/2.5f, normalizedSpeed);
             }
             
-            if (!handBreak && !breaks)
+            if(handBreak)
+            {
+                if(wheel.rearWheel)
+                    wheel.WheelCollider.brakeTorque = car.brakePower * 3;
+                wheel.WheelCollider.motorTorque = 0;
+            }
+            else if(breaks)
+            {
+                wheel.WheelCollider.brakeTorque = car.brakePower;
+                wheel.WheelCollider.motorTorque = 0;
+            }
+            else
             {
                 if (wheel.motorized)
                 {
@@ -64,14 +75,7 @@ public class CarController : MonoBehaviour
                 }
                 wheel.WheelCollider.brakeTorque = 0;
             }
-            else if(handBreak)
-            {
-                wheel.WheelCollider.brakeTorque = car.brakePower * 3;
-            }
-            else if(breaks)
-            {
-                wheel.WheelCollider.brakeTorque = car.brakePower;
-            }
+
         }
     }
 }

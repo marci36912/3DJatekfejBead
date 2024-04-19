@@ -7,7 +7,7 @@ using System.Threading;
 public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> checkpoints;
-    [SerializeField] private bool loop;
+    private bool loop;
     [SerializeField] private CheckpointTextManager checkpointTextManager;
     [SerializeField] private TimeTextManager timeTextManager;
     [SerializeField] private LapTextManager lapTextManager;
@@ -17,6 +17,7 @@ public class CheckpointManager : MonoBehaviour
 
     private void Start() 
     {
+        loop = MainMenu.isLooping;
         lapIndex = 0;
         if(checkpoints.Count != 0)
         {
@@ -61,6 +62,7 @@ public class CheckpointManager : MonoBehaviour
         time = Time.time - time;
         Debug.Log($"Finished, {getTime()}");
         GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().finished();
+        Time.timeScale = loop ? 1 : 0;
 
         if(loop)
         {
@@ -70,6 +72,7 @@ public class CheckpointManager : MonoBehaviour
 
     private void resetCheckpoints()
     {
+        Time.timeScale = 1;
             time = Time.time;
             timeTextManager.setStartingTime(time);
             foreach (var checkpoint in checkpoints)
