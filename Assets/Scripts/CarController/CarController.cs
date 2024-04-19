@@ -16,6 +16,7 @@ public class CarController : MonoBehaviour
     private float torque;
     private bool handBreak;
     private bool breaks;
+    private SpeedVisual speedVisual;
 
     private void OnEnable() 
     {
@@ -27,6 +28,7 @@ public class CarController : MonoBehaviour
 
 
         GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().setData(transform);
+        speedVisual = GameObject.Find("SpeedSlider").GetComponent<SpeedVisual>();
     }
 
     private void Update() 
@@ -36,6 +38,7 @@ public class CarController : MonoBehaviour
 
         handBreak = Input.GetKey(KeyCode.Space);
         normalizedSpeed = carBody.velocity.magnitude / car.maxSpeed;
+        speedVisual.setSpeed(normalizedSpeed);
     }
 
     private void FixedUpdate() 

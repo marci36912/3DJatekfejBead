@@ -8,15 +8,25 @@ public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> checkpoints;
     [SerializeField] private bool loop;
+    [SerializeField] private CheckpointTextManager checkpointTextManager;
+    [SerializeField] private TimeTextManager timeTextManager;
+    [SerializeField] private LapTextManager lapTextManager;
     private int index;
+    private int lapIndex;
     private float time;
 
     private void Start() 
     {
+        lapIndex = 0;
         if(checkpoints.Count != 0)
         {
             resetCheckpoints();
         }
+
+        //checkpointTextManager = GameObject.Find("/HUD/CheckpointText").GetComponent<CheckpointTextManager>();
+        //timeTextManager = GameObject.Find("/HUD/TimerText").GetComponent<TimeTextManager>();
+        //lapTextManager = GameObject.Find("/HUD/Laps").GetComponent<LapTextManager>();
+        checkpointTextManager.setMaxCheckpoint(checkpoints.Count);
     }
 
     public void nextIndex()
@@ -32,6 +42,8 @@ public class CheckpointManager : MonoBehaviour
             index++;
             checkpoints[index].SetActive(true);
         }
+
+        checkpointTextManager.setCheckpoints(index);
     }
 
     public string getTime()
@@ -59,12 +71,16 @@ public class CheckpointManager : MonoBehaviour
     private void resetCheckpoints()
     {
             time = Time.time;
+            timeTextManager.setStartingTime(time);
             foreach (var checkpoint in checkpoints)
             {
                 checkpoint.SetActive(false);
             }
 
             index = 0;
+            lapIndex++;
             checkpoints[index].SetActive(true);
+
+            lapTextManager.lapcount(lapIndex);
     }
 }

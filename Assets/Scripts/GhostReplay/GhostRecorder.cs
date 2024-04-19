@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,6 +42,7 @@ public class GhostRecorder : MonoBehaviour
             tmp.setPoints(points);
 
         notFinished = false;
+        points.Clear();
     }
 
     public void setData(Transform car)
