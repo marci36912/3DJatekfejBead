@@ -17,7 +17,7 @@ public class Ghost
 
     public Ghost(string line)
     {
-        string[] values = line.Split(' ');
+        string[] values = line.Split(';');
 
         if(values.Length == 7)
             setValues(float.Parse(values[0]), float.Parse(values[1]), float.Parse(values[2]), float.Parse(values[3]), float.Parse(values[4]), float.Parse(values[5]), float.Parse(values[6]));
@@ -32,6 +32,6 @@ public class Ghost
 
     public override string ToString()
     {
-        return $"{position.x} {position.y} {position.z} {rotation.x} {rotation.y} {rotation.z} {timestamp}";
+        return $"{position.x};{position.y};{position.z};{rotation.x};{rotation.y};{rotation.z};{timestamp}";
     }
 }
