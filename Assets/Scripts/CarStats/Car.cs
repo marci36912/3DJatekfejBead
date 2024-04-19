@@ -8,11 +8,10 @@ public class Car
     public float maxSpeed {private set; get;}
     public float steeringAngle {private set; get;}
 
-    public Car(string name, CarEnum carEnum, DriveEnum driveEnum, float horsepower, float brakepower, float maxspeed, float steeringangle)
+    public Car(string name, CarEnum carEnum, float horsepower, float brakepower, float maxspeed, float steeringangle)
     {
         this.name = name;
         this.carEnum = carEnum;
-        this.driveEnum = driveEnum;
         this.horsePower = horsepower;
         this.brakePower = brakepower;
         this.maxSpeed = maxspeed;

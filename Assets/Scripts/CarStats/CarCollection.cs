@@ -13,7 +13,9 @@ public class CarCollection : MonoBehaviour
         {
             cars = new List<Car>();
                              //name        type         drive          hp    bp    max  steering
-            cars.Add(new Car("Nissan GTR", CarEnum.gtr, DriveEnum.RWD, 3000, 2000,  50, 30));
+            cars.Add(new Car("Nissan GTR", CarEnum.rwd, 3000, 2000,  50, 30));
+            cars.Add(new Car("Nissan GTR", CarEnum.awd, 3000, 2000,  50, 30));
+            cars.Add(new Car("Nissan GTR", CarEnum.fwd, 3000, 2000,  50, 30));
         }        
     }
 

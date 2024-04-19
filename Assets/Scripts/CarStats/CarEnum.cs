@@ -1,5 +1,6 @@
 public enum CarEnum
 {
-    gtr,
-    vege
+    rwd,
+    awd,
+    fwd
 }

@@ -479,7 +479,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5005459124008578256}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -530,7 +530,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5005459124008578256}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &8652689965083628428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5005459124008578256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4743396583716cb4991fb18960fec607, type: 3}
   m_Name: 
@@ -966,7 +966,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5974059124395215040}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbcaf04893b50c44da30242c0dd5e145, type: 3}
   m_Name: 
@@ -982,6 +982,7 @@ GameObject:
   - component: {fileID: 690840714790611094}
   - component: {fileID: 5850731638214242801}
   - component: {fileID: 1158804914498228322}
+  - component: {fileID: 6594580687184274382}
   m_Layer: 0
   m_Name: GTR
   m_TagString: Car
@@ -1043,7 +1044,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7448920651833001941}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd34b0631d7356b428d25ebe1adcb889, type: 3}
   m_Name: 
@@ -1073,6 +1074,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6594580687184274382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448920651833001941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8965fae9ac0504cb2ce1d0472cf095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7994662417697576077
 GameObject:
   m_ObjectHideFlags: 0
