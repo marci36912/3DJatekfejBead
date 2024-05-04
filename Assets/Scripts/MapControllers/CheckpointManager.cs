@@ -49,7 +49,7 @@ public class CheckpointManager : MonoBehaviour
 
     public string getTime()
     {
-        return $"{(int)(time / 60)}:{Math.Round(time - ((int)time/60)*60, 2)}";
+        return $"Finished!\nYour time is:\n{(int)(time / 60)}:{Math.Round(time - ((int)time/60)*60, 2)}";
     }
 
     private bool lastCheckpoint()
@@ -60,8 +60,10 @@ public class CheckpointManager : MonoBehaviour
     private void finished()
     {
         time = Time.time - time;
-        Debug.Log($"Finished, {getTime()}");
+        Debug.Log($"{getTime()}");
         GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().finished();
+        UIManager.gameEnded(getTime());
+
         Time.timeScale = loop ? 1 : 0;
 
         if(loop)
