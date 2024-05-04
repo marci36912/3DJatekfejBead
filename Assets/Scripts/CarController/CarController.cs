@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
     [SerializeField] private CarEnum carEnum;
     [SerializeField] private AnimationCurve torqueCurve;
+    private ResetTimerText resetTimerText;
+    private CheckpointManager checkpointManager;
     private WheelControl[] wheels;
     private Rigidbody carBody;
     private Car car;
@@ -14,8 +17,11 @@ public class CarController : MonoBehaviour
     private float direction;
     private float normalizedSpeed;
     private float torque;
+    private float resetCooldown;
+    private float resetTime;
     private bool handBreak;
     private bool breaks;
+    private bool resetCar;
     private SpeedVisual speedVisual;
 
     private void OnEnable() 
@@ -29,6 +35,10 @@ public class CarController : MonoBehaviour
 
         GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().setData(transform);
         speedVisual = GameObject.Find("SpeedSlider").GetComponent<SpeedVisual>();
+        checkpointManager = GameObject.Find("CheckpointManager").GetComponent<CheckpointManager>();
+        resetTimerText = GameObject.Find("UIManager/HUD/ResetTimer").GetComponent<ResetTimerText>();
+
+        resetTime = 3;
     }
 
     private void Update() 
@@ -37,11 +47,44 @@ public class CarController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
 
         handBreak = Input.GetKey(KeyCode.Space);
+        resetCar = Input.GetKey(KeyCode.R);
         normalizedSpeed = carBody.velocity.magnitude / car.maxSpeed;
         speedVisual.setSpeed(normalizedSpeed);
+
+        resetCarsPosition();
     }
 
     private void FixedUpdate() 
+    {
+        CarControll();
+    }
+
+    private void resetCarsPosition()
+    {
+        if(resetCar)
+        {
+            resetCooldown -= Time.deltaTime;
+            resetTimerText.setTime(resetCooldown.ToString("0.00"));
+
+            if(resetCooldown <= 0)
+            {
+                carBody.velocity = Vector3.zero;
+                carBody.angularVelocity = Vector3.zero;
+
+                Transform tmp = checkpointManager.lastCheckpointTransform();
+                transform.position = tmp.position;
+                transform.eulerAngles = tmp.eulerAngles;
+                resetCooldown = resetTime;
+            }
+        }
+        else
+        {
+            resetCooldown = resetTime;
+            resetTimerText.setTime("");
+        }
+    }
+
+    private void CarControll()
     {
         breaks = (direction > 1 && vertical < 0) || (direction < -1 && vertical > 0);
 

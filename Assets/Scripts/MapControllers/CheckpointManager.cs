@@ -30,6 +30,10 @@ public class CheckpointManager : MonoBehaviour
         checkpointTextManager.setMaxCheckpoint(checkpoints.Count);
     }
 
+    public Transform lastCheckpointTransform()
+    {
+        return checkpoints[index == 0 ? 0 : index - 1].transform;
+    }
     public void nextIndex()
     {
         checkpoints[index].SetActive(false);
