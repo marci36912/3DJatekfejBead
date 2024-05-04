@@ -7,13 +7,12 @@ public class SpeedVisual : MonoBehaviour
 {
     [SerializeField] private Color start;
     [SerializeField] private Color end;
-    private Slider speed;
+    [SerializeField] private Slider speed;
     private Image slider;
 
     void Start()
     {
-        speed = GetComponent<Slider>();
-        slider = GameObject.Find("Fill").GetComponent<Image>();
+        slider = GameObject.Find("SpeedFill").GetComponent<Image>();
     }
 
     public void setSpeed(float currectSpeed)

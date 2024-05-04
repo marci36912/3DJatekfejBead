@@ -7,6 +7,7 @@ public class CarController : MonoBehaviour
 {
     [SerializeField] private CarEnum carEnum;
     [SerializeField] private AnimationCurve torqueCurve;
+    private CarSound carSound;
     private ResetTimerText resetTimerText;
     private CheckpointManager checkpointManager;
     private WheelControl[] wheels;
@@ -32,7 +33,7 @@ public class CarController : MonoBehaviour
 
         carBody.centerOfMass += Vector3.up * -1;
 
-
+        carSound = GetComponent<CarSound>();
         GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().setData(transform);
         speedVisual = GameObject.Find("SpeedSlider").GetComponent<SpeedVisual>();
         checkpointManager = GameObject.Find("CheckpointManager").GetComponent<CheckpointManager>();
@@ -49,7 +50,10 @@ public class CarController : MonoBehaviour
         handBreak = Input.GetKey(KeyCode.Space);
         resetCar = Input.GetKey(KeyCode.R);
         normalizedSpeed = carBody.velocity.magnitude / car.maxSpeed;
-        speedVisual.setSpeed(normalizedSpeed);
+        if(speedVisual != null)
+            speedVisual.setSpeed(normalizedSpeed);
+
+        carSound.getThrottle(normalizedSpeed);
 
         resetCarsPositionTimer();
         outOfMap();
@@ -73,7 +77,8 @@ public class CarController : MonoBehaviour
         if(resetCar)
         {
             resetCooldown -= Time.deltaTime;
-            resetTimerText.setTime(resetCooldown.ToString("0.00"));
+            if(resetTimerText != null)
+                resetTimerText.setTime(resetCooldown.ToString("0.00"));
 
             if(resetCooldown <= 0)
             {
@@ -83,7 +88,8 @@ public class CarController : MonoBehaviour
         else
         {
             resetCooldown = resetTime;
-            resetTimerText.setTime("");
+            if(resetTimerText != null)
+                resetTimerText.setTime("");
         }
     }
 
@@ -92,10 +98,13 @@ public class CarController : MonoBehaviour
                 carBody.velocity = Vector3.zero;
                 carBody.angularVelocity = Vector3.zero;
 
-                Transform tmp = checkpointManager.lastCheckpointTransform();
-                transform.position = tmp.position;
-                transform.eulerAngles = tmp.eulerAngles;
-                resetCooldown = resetTime;
+                if(checkpointManager != null)
+                {
+                    Transform tmp = checkpointManager.lastCheckpointTransform();
+                    transform.position = tmp.position;
+                    transform.eulerAngles = tmp.eulerAngles;
+                    resetCooldown = resetTime;
+                }
     }
 
     private void CarControll()

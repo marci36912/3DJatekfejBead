@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
     public static void changeMenu()
     {
         hud.enabled = !hud.enabled;
@@ -45,15 +46,19 @@ public class UIManager : MonoBehaviour
         if(hud.enabled)
         {
             Time.timeScale = 1;
+            AudioListener.volume = 1;
         }
         else
         {
+            AudioListener.volume = 0;
             Time.timeScale = 0;
         }
     }
 
     public static void gameEnded(string time)
     {
+        
+        Time.timeScale = 0;
         notFinished = false;
 
         hud.enabled = false;

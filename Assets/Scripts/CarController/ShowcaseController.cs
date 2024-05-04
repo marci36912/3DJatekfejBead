@@ -11,6 +11,11 @@ public class ShowcaseController : MonoBehaviour
         GetComponentInChildren<CameraFollow>().enabled = showcase;
         GetComponentInChildren<Camera>().enabled = showcase;
         GetComponentInChildren<AudioListener>().enabled = showcase;
+
+        foreach(var audio in GetComponentsInChildren<AudioSource>())
+        {
+            audio.enabled = showcase;
+        }
     }
 
     private void OnEnable() 
