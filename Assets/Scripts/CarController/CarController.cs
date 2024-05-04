@@ -51,7 +51,7 @@ public class CarController : MonoBehaviour
         resetCar = Input.GetKey(KeyCode.R);
         normalizedSpeed = carBody.velocity.magnitude / car.maxSpeed;
         if(speedVisual != null)
-            speedVisual.setSpeed(normalizedSpeed);
+            speedVisual.setSpeed(normalizedSpeed, carBody.velocity.magnitude);
 
         carSound.getThrottle(normalizedSpeed);
 
@@ -78,7 +78,7 @@ public class CarController : MonoBehaviour
         {
             resetCooldown -= Time.deltaTime;
             if(resetTimerText != null)
-                resetTimerText.setTime(resetCooldown.ToString("0.00"));
+                resetTimerText.setTime("You will be reset in:\n" + resetCooldown.ToString("0.00"));
 
             if(resetCooldown <= 0)
             {
@@ -142,6 +142,10 @@ public class CarController : MonoBehaviour
                 wheel.WheelCollider.brakeTorque = 0;
             }
 
+            if(wheel.WheelCollider.rpm > 1000)
+            {
+                wheel.WheelCollider.motorTorque = 0;
+            }
         }
     }
 }

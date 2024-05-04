@@ -68,6 +68,7 @@ public class CheckpointManager : MonoBehaviour
         GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().finished();
         UIManager.gameEnded(getTime());
 
+        AudioListener.volume = 0;
         Time.timeScale = loop ? 1 : 0;
 
         if(loop)

@@ -12,10 +12,10 @@ public class CarCollection : MonoBehaviour
         if(cars == null)
         {
             cars = new List<Car>();
-                             //name        type         drive          hp    bp    max  steering
-            cars.Add(new Car("Nissan GTR", CarEnum.rwd, 3000, 2000,  50, 30));
-            cars.Add(new Car("Nissan GTR", CarEnum.awd, 3000, 2000,  50, 30));
-            cars.Add(new Car("Nissan GTR", CarEnum.fwd, 3000, 2000,  50, 30));
+                             //type       hp    bp      max  steering
+            cars.Add(new Car(CarEnum.rwd, 3000, 2000,    50,    35));
+            cars.Add(new Car(CarEnum.awd, 900,  5000,    40,   30));
+            cars.Add(new Car(CarEnum.fwd, 5000, 3500,    65,    30));
         }        
     }
 
