@@ -28,11 +28,6 @@ public class GhostRecorder : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 
     public void finished()
