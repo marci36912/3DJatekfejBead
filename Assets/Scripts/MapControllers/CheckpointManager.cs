@@ -65,32 +65,33 @@ public class CheckpointManager : MonoBehaviour
     {
         time = Time.time - time;
         Debug.Log($"{getTime()}");
-        GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().finished();
-        UIManager.gameEnded(getTime());
-
-        AudioListener.volume = 0;
-        Time.timeScale = loop ? 1 : 0;
 
         if(loop)
         {
             resetCheckpoints();
+        }
+        else
+        {
+            GameObject.Find("GhostRecorder").GetComponent<GhostRecorder>().finished();
+            UIManager.gameEnded(getTime());
+            AudioListener.volume = 0;
         }
     }
 
     private void resetCheckpoints()
     {
         Time.timeScale = 1;
-            time = Time.time;
-            timeTextManager.setStartingTime(time);
-            foreach (var checkpoint in checkpoints)
-            {
-                checkpoint.SetActive(false);
-            }
+        time = Time.time;
+        timeTextManager.setStartingTime(time);
+        foreach (var checkpoint in checkpoints)
+        {
+            checkpoint.SetActive(false);
+        }
 
-            index = 0;
-            lapIndex++;
-            checkpoints[index].SetActive(true);
+        index = 0;
+        lapIndex++;
+        checkpoints[index].SetActive(true);
 
-            lapTextManager.lapcount(lapIndex);
+        lapTextManager.lapcount(lapIndex);
     }
 }
