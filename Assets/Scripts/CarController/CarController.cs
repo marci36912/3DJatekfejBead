@@ -51,7 +51,8 @@ public class CarController : MonoBehaviour
         normalizedSpeed = carBody.velocity.magnitude / car.maxSpeed;
         speedVisual.setSpeed(normalizedSpeed);
 
-        resetCarsPosition();
+        resetCarsPositionTimer();
+        outOfMap();
     }
 
     private void FixedUpdate() 
@@ -59,7 +60,15 @@ public class CarController : MonoBehaviour
         CarControll();
     }
 
-    private void resetCarsPosition()
+    private void outOfMap()
+    {
+        if(transform.localPosition.y <= -20)
+        {
+            resetCarsPosition();
+        }
+    }
+
+    private void resetCarsPositionTimer()
     {
         if(resetCar)
         {
@@ -68,13 +77,7 @@ public class CarController : MonoBehaviour
 
             if(resetCooldown <= 0)
             {
-                carBody.velocity = Vector3.zero;
-                carBody.angularVelocity = Vector3.zero;
-
-                Transform tmp = checkpointManager.lastCheckpointTransform();
-                transform.position = tmp.position;
-                transform.eulerAngles = tmp.eulerAngles;
-                resetCooldown = resetTime;
+                resetCarsPosition();
             }
         }
         else
@@ -82,6 +85,17 @@ public class CarController : MonoBehaviour
             resetCooldown = resetTime;
             resetTimerText.setTime("");
         }
+    }
+
+    private void resetCarsPosition()
+    {
+                carBody.velocity = Vector3.zero;
+                carBody.angularVelocity = Vector3.zero;
+
+                Transform tmp = checkpointManager.lastCheckpointTransform();
+                transform.position = tmp.position;
+                transform.eulerAngles = tmp.eulerAngles;
+                resetCooldown = resetTime;
     }
 
     private void CarControll()
