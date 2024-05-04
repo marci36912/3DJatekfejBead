@@ -44,6 +44,8 @@ public class GhostReplayer : MonoBehaviour
     {
         float t = Mathf.Clamp((Time.time - startTime)/(endTime - startTime), 0.0f, 1.0f);
         ghost.transform.position = Vector3.Lerp(startPosition, endPosition, t);
-        //ghost.transform.eulerAngles = Vector3.Lerp(startRotation, endRotation, t);    causes weird flipping while replaying
+        Quaternion start = Quaternion.Euler(startRotation);
+        Quaternion end = Quaternion.Euler(endRotation);
+        transform.rotation = Quaternion.Lerp(start, end, t);
     }
 }
