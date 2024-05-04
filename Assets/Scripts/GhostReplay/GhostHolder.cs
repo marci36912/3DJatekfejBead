@@ -73,7 +73,7 @@ public class GhostHolder : MonoBehaviour
         if(playedDate == "" || playedDate == null)
             setDate();
 
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        using (StreamWriter outputFile = new StreamWriter(fileName, false))
         {
             outputFile.WriteLine($"{playerName};{playedDate}\n");
             foreach (Ghost point in _points)
